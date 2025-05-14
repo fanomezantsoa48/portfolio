@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 2D - Évitez les obstacles</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #1a1a1a, #333);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #game-container {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background-color: #222;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        
+        #road {
+            position: absolute;
+            width: 300px;
+            height: 100%;
+            left: 50px;
+            background-color: #444;
+            border-left: 5px dashed #fff;
+            border-right: 5px dashed #fff;
+        }
+        
+        #player-car {
+            position: absolute;
+            width: 50px;
+            height: 90px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90"><rect x="5" y="15" width="40" height="60" fill="red"/><rect x="10" y="5" width="30" height="10" fill="red"/><circle cx="15" cy="75" r="10" fill="black"/><circle cx="35" cy="75" r="10" fill="black"/></svg>');
+            background-size: contain;
+            bottom: 20px;
+            left: 175px;
+            z-index: 10;
+        }
+        
+        .obstacle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect x="0" y="0" width="60" height="60" fill="%23aaa"/><rect x="10" y="10" width="40" height="40" fill="%23555"/></svg>');
+            background-size: contain;
+            z-index: 5;
+        }
+        
+        #score-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            z-index: 20;
+        }
+        
+        #game-over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 30;
+        }
+        
+        #game-over h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        #restart-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #start-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 40;
+        }
+        
+        #start-screen h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        #start-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="road"></div>
+        <div id="player-car"></div>
+        <div id="score-display">Score: 0</div>
+        
+        <div id="game-over">
+            <h1>Game Over!</h1>
+            <p id="final-score">Score: 0</p>
+            <button id="restart-btn">Rejouer</button>
+        </div>
+        
+        <div id="start-screen">
+            <h1>Course 2D</h1>
+            <p>Évitez les obstacles avec les touches fléchées</p>
+            <button id="start-btn">Commencer</button>
+            <div id="controls">
+                <p>Contrôles:</p>
+                <p>← → pour se déplacer</p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="crash-sound" src="data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU..."></audio>
+    <audio id="engine-sound" src="data:audio/wav;base64,UklGRi9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU..." loop></audio>
+
+    <script>
+        // Variables du jeu
+        const gameContainer = document.getElementById('game-container');
+        const playerCar = document.getElementById('player-car');
+        const road = document.getElementById('road');
+        const scoreDisplay = document.getElementById('score-display');
+        const gameOverScreen = document.getElementById('game-over');
+        const finalScoreDisplay = document.getElementById('final-score');
+        const restartBtn = document.getElementById('restart-btn');
+        const startScreen = document.getElementById('start-screen');
+        const startBtn = document.getElementById('start-btn');
+        const crashSound = document.getElementById('crash-sound');
+        const engineSound = document.getElementById('engine-sound');
+        
+        let gameSpeed = 5;
+        let score = 0;
+        let gameIsRunning = false;
+        let obstacles = [];
+        let animationId;
+        let roadOffset = 0;
+        let playerPosition = 175;
+        let keysPressed = {};
+        
+        // Taille du jeu
+        const gameWidth = 400;
+        const gameHeight = 600;
+        const roadWidth = 300;
+        const roadLeft = 50;
+        
+        // Écouteurs d'événements
+        document.addEventListener('keydown', (e) => {
+            keysPressed[e.key] = true;
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            keysPressed[e.key] = false;
+        });
+        
+        startBtn.addEventListener('click', startGame);
+        restartBtn.addEventListener('click', restartGame);
+        
+        // Fonctions du jeu
+        function startGame() {
+            startScreen.style.display = 'none';
+            gameIsRunning = true;
+            score = 0;
+            gameSpeed = 5;
+            obstacles = [];
+            playerPosition = 175;
+            updatePlayerPosition();
+            engineSound.play();
+            gameLoop();
+        }
+        
+        function restartGame() {
+            gameOverScreen.style.display = 'none';
+            startGame();
+        }
+        
+        function gameLoop() {
+            if (!gameIsRunning) return;
+            
+            updateRoad();
+            updatePlayer();
+            updateObstacles();
+            checkCollisions();
+            updateScore();
+            
+            animationId = requestAnimationFrame(gameLoop);
+        }
+        
+        function updateRoad() {
+            roadOffset += gameSpeed;
+            if (roadOffset >= 120) roadOffset = 0;
+            road.style.backgroundPositionY = roadOffset + 'px';
+        }
+        
+        function updatePlayer() {
+            if (keysPressed['ArrowLeft'] && playerPosition > roadLeft + 30) {
+                playerPosition -= 5;
+            }
+            if (keysPressed['ArrowRight'] && playerPosition < roadLeft + roadWidth - 80) {
+                playerPosition += 5;
+            }
+            updatePlayerPosition();
+        }
+        
+        function updatePlayerPosition() {
+            playerCar.style.left = playerPosition + 'px';
+        }
+        
+        function updateObstacles() {
+            // Déplacer les obstacles existants
+            obstacles.forEach(obstacle => {
+                const currentTop = parseInt(obstacle.style.top) || 0;
+                obstacle.style.top = (currentTop + gameSpeed) + 'px';
+                
+                // Supprimer les obstacles sortis de l'écran
+                if (currentTop > gameHeight) {
+                    obstacle.remove();
+                    obstacles = obstacles.filter(o => o !== obstacle);
+                    score += 1;
+                }
+            });
+            
+            // Ajouter de nouveaux obstacles aléatoirement
+            if (Math.random() < 0.02) {
+                createObstacle();
+            }
+        }
+        
+        function createObstacle() {
+            const obstacle = document.createElement('div');
+            obstacle.className = 'obstacle';
+            
+            const lane = Math.floor(Math.random() * 3);
+            let leftPosition;
+            
+            switch(lane) {
+                case 0: leftPosition = roadLeft + 20; break;
+                case 1: leftPosition = roadLeft + roadWidth/2 - 30; break;
+                case 2: leftPosition = roadLeft + roadWidth - 80; break;
+            }
+            
+            obstacle.style.left = leftPosition + 'px';
+            obstacle.style.top = '-60px';
+            
+            gameContainer.appendChild(obstacle);
+            obstacles.push(obstacle);
+        }
+        
+        function checkCollisions() {
+            const playerRect = playerCar.getBoundingClientRect();
+            
+            for (const obstacle of obstacles) {
+                const obstacleRect = obstacle.getBoundingClientRect();
+                
+                if (
+                    playerRect.left < obstacleRect.right &&
+                    playerRect.right > obstacleRect.left &&
+                    playerRect.top < obstacleRect.bottom &&
+                    playerRect.bottom > obstacleRect.top
+                ) {
+                    gameOver();
+                    return;
+                }
+            }
+        }
+        
+        function updateScore() {
+            scoreDisplay.textContent = `Score: ${score}`;
+            
+            // Augmenter la difficulté
+            if (score > 0 && score % 10 === 0) {
+                gameSpeed = 5 + Math.floor(score / 10);
+            }
+        }
+        
+        function gameOver() {
+            gameIsRunning = false;
+            cancelAnimationFrame(animationId);
+            finalScoreDisplay.textContent = `Score: ${score}`;
+            gameOverScreen.style.display = 'flex';
+            crashSound.play();
+            engineSound.pause();
+            engineSound.currentTime = 0;
+        }
+    </script>
+</body>
+</html>

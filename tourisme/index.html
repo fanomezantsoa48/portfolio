@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madagascar Travel - Découvrez l'Île Rouge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo (2).jpeg" alt="Madagascar Travel">
+                <span>Madagascar Travel</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#destinations">Circuits</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#reservation">Contact</a></li>
+                    <li><a href="#reservation" class="btn-reservation">Réserver</a></li>
+                </ul>
+            </nav>
+            <div class="menu-mobile">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero"  style="background-image: url('images/anosy.jpeg');" id="accueil">
+        <div class="hero-content">
+            <h1>Découvrez Madagascar, l'Île Rouge</h1>
+            <p>Une aventure unique au cœur de la biodiversité</p>
+            <a href="#reservation" class="btn">Réserver maintenant</a>
+        </div>
+    </section>
+
+    <!-- Section Destinations -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <h2>Nos Destinations Phares</h2>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="images/tana.jpeg" alt="Antananarivo">
+                    <div class="card-content">
+                        <h3>Antananarivo</h3>
+                        <p>La capitale vibrante avec son palais royal et ses collines</p>
+                        <a href="destinations/antananarivo.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="images/antsirba.jpeg" alt="antsirabe">
+                    <div class="card-content">
+                        <h3>antsirabe</h3>
+                        <p>Plages paradisiaques et parfums d'ylang-ylang</p>
+                        <a href="destinations/nosy-be.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/anosy.jpeg" alt="Nosy Be">
+                    <div class="card-content">
+                        <h3>Nosy Be</h3>
+                        <p>Plages paradisiaques et parfums d'ylang-ylang</p>
+                        <a href="destinations/nosy-be.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/fianaratsoa.jpeg" alt="Nosy Be">
+                    <div class="card-content">
+                        <h3>fianaratsoa</h3>
+                        <p>Plages paradisiaques et parfums d'ylang-ylang</p>
+                        <a href="destinations/nosy-be.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/mahajunga.jpeg" alt="Nosy Be">
+                    <div class="card-content">
+                        <h3>mahajunga</h3>
+                        <p>Plages paradisiaques et parfums d'ylang-ylang</p>
+                        <a href="destinations/nosy-be.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/toamasina.jpeg" alt="Nosy Be">
+                    <div class="card-content">
+                        <h3>toamasina</h3>
+                        <p>Plages paradisiaques et parfums d'ylang-ylang</p>
+                        <a href="destinations/nosy-be.html" class="btn">Voir détails</a>
+                    </div>
+                </div>
+                
+
+                <!-- Ajouter les autres destinations de la même manière -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tarifs -->
+    <section class="tarifs" id="tarifs">
+        <div class="container">
+            <h2>Nos Tarifs Tout Compris</h2>
+            <div class="tarifs-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Destination</th>
+                            <th>Durée</th>
+                            <th>Prix/pers (€)</th>
+                            <th>Inclus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Antananarivo</td>
+                            <td>3 jours</td>
+                            <td>350€</td>
+                            <td>Hébergement, repas, transport, guide</td>
+                        </tr>
+                        <!-- Ajouter les autres destinations -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Réservation -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <h2>Réservez Votre Voyage</h2>
+            <div class="reservation-form">
+                <form id="form-reservation">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" required>
+                            <option value="">Choisissez une destination</option>
+                            <option value="Antananarivo">Antananarivo</option>
+                            <option value="Nosy Be">Nosy Be</option>
+                               <option value="toamasina">toamasina</option>
+                               <option value="antsirabe">antsirabe</option>
+                               <option value="fianaratsoa">fianaratsoa </option>
+                               <option value="mahajunga">Nosy Be</option>
+                            <!-- Ajouter les autres options -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-depart">Date de départ</label>
+                        <input type="date" id="date-depart" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre-personnes">Nombre de personnes</label>
+                        <input type="number" id="nombre-personnes" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone (WhatsApp)</label>
+                        <input type="tel" id="telephone">
+                    </div>
+                    <button type="submit" class="btn">Envoyer la réservation</button>
+                </form>
+                <div class="reservation-contact">
+                    <h3>Contactez-nous directement</h3>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+261 38 32 335 36 </span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>038 32 335 36</p>
+                        <p>034 20 401 54</p>
+                    </div>
+                    <div class="info-item">
+                      <p> <i class="fas fa-map-marker-alt"> lot III S 355 MR bis A madera namontana</i></p> 
+                    </div>
+                    <div class="info-item">
+                        <p><i class="fab fa-facebook"></i>Facebook : Madagascar-tour officiel </p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>fitahianafenofanomezana@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Madagascar Travel</h3>
+                    <p>Votre expert en voyages à Madagascar depuis 2010. Nous offrons des expériences authentiques et mémorables.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Madagascar</p>
+                    <p><i class="fas fa-phone"></i> +261 34 12 345 67</p>
+                    <p><i class="fas fa-envelope"></i> fitahianafenofanomezana@gmail.com</p>
+                    
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Madagascar Travel. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/reservations.js"></script>
+</body>
+</html>

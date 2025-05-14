@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elli Évent - Luxuriöser Veranstaltungsort | München</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Premium Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Elli Évent</h1>
+                <p>Luxury Event Space | München</p>
+            </div>
+            
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link" title="Startseite">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Startseite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="uber-uns.html" class="nav-link" title="Über uns">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">Über uns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dienstleistungen.html" class="nav-link" title="Dienstleistungen">
+                            <i class="fas fa-concierge-bell nav-icon"></i>
+                            <span class="nav-text">Dienstleistungen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="galerie.html" class="nav-link" title="Galerie">
+                            <i class="fas fa-images nav-icon"></i>
+                            <span class="nav-text">Galerie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kontakt.html" class="nav-link" title="Kontakt">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Kontakt</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero avec fond personnalisé -->
+    <section class="hero" style="background-image: url('images/signature.jpeg');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Kontaktieren Sie uns</h2>
+                <p class="highlight-text">Planen Sie Ihre Veranstaltung in unserem luxuriösen Raum</p>
+                  </div>
+        </div>
+    </section>
+
+        <!-- Kontakt Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Unsere Kontaktdaten</h3>
+                    <p><i class="fas fa-location-dot"></i> Luxusstraße 123, 80333 München, Deutschland</p>
+                    <p><i class="fas fa-phone"></i> +49 89 12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@elli-event-luxus.de</p>
+                    <p><i class="fas fa-clock"></i> Montag-Freitag: 9-18 Uhr</p>
+                    
+                    <h3><i class="fas fa-user-tie"></i> Frau Elli Fara Spateneder</h3>
+                    <p>Eigentümerin und Managerin</p>
+                    <p><i class="fas fa-phone"></i> +49 89 87654321</p>
+                    <p><i class="fas fa-envelope"></i> elli.fara@luxus.de</p>
+                    
+                    <div class="social-links">
+                        <h3><i class="fas fa-share-alt"></i> Soziale Medien</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.pinterest.com/" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+                <div class="contact-form">
+                    <h3><i class="fas fa-paper-plane"></i> Kontaktformular</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ihr vollständiger Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ihre E-Mail-Adresse" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Ihre Telefonnummer">
+                        </div>
+                        <div class="form-group">
+                            <select id="event-type" required>
+                                <option value="">Art der Veranstaltung</option>
+                                <option value="hochzeit">Hochzeit</option>
+                                <option value="taufe">Taufe</option>
+                                <option value="geburtstag">Geburtstag</option>
+                                <option value="firma">Firmenveranstaltung</option>
+                                <option value="andere">Andere</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="event-date" placeholder="Gewünschtes Datum" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Beschreiben Sie Ihre Veranstaltung..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> Anfrage senden
+                        </button>
+                    </form>
+                    <div id="confirmation-message"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kartenbereich -->
+        <section class="map-section">
+            <div class="container">
+                <h3><i class="fas fa-map-location-dot"></i> So finden Sie uns</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.123456789012!2d11.5819808!3d48.1351493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75f9a38c2fd9%3A0x4223a51b3b0d6b2!2sLuxusstra%C3%9Fe%20123%2C%2080333%20M%C3%BCnchen%2C%20Deutschland!5e0!3m2!1sde!2sde!4v1620000000000!5m2!1sde!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-language">
+                <a href="#" class="active">DE</a>
+                <a href="#">FR</a>
+                <a href="#">EN</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Elli Évent. Alle Rechte vorbehalten.</p>
+                <p>Veranstaltungsort eröffnet 2025 | Eigentümerin: Elli Fara Spateneder</p>
+                <p>Alle Reservierungen müssen per E-Mail bestätigt werden an <a href="mailto:fitahianafenofanomezana@gmail.com">fitahianafenofanomezana@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

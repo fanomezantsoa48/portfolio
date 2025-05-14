@@ -1,0 +1,79 @@
+/* Tablettes */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .reservation-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav.active {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .menu-mobile {
+        display: block;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+    
+    .logo span {
+        font-size: 1.2rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tarifs h2, .reservation h2, .destinations h2 {
+        font-size: 1.8rem;
+    }
+}

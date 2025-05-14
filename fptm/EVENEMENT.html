@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPTM Madera - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>FPTM Madera</h1>
+        <p>Église Chrétienne - Antananarivo, Madagascar</p>
+
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="about.html">À Propos</a>
+        <a href="programme.html">Programme de Prière</a>
+        <a href="contact.html">Contact</a>
+        <a href="toriteny.html">toriteny</a>
+        <a href="EVENEMENT.html">actualité</a>
+
+
+    </nav>
+    <div class="diaporama-container">
+        <h1>Diaporama d'images</h1>
+        <h2>fanokanana mpiandry</h2>
+        
+        <div class="image-container">
+            <img id="diapo-image" src="" alt="Image du diaporama">
+        </div>
+        
+        <div class="image-info">
+            Image <span id="current-index">1</span> sur <span id="total-count">0</span>
+        </div>
+        
+        <div class="controls">
+            <button id="prev-btn">Précédent</button>
+            <button id="next-btn">Suivant</button>
+        </div>
+    </div>
+
+    <script>
+        // Liste des images (à remplacer par vos noms de fichiers)
+        const images = [
+            "1 (5)",
+            "1 (6)",
+            "1 (7)",
+            "1 (8)",
+            "1 (9)",
+            "1 (10)",
+            "1 (11)",
+            "1 (12)",
+            "1 (13)",
+            "1 (14)",
+            "1 (15)",
+
+        ];
+        
+        // Chemin vers le dossier des images
+        const imagePath = "lmc/";
+        
+        let currentImageIndex = 0;
+        const diapoImage = document.getElementById('diapo-image');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const currentIndexSpan = document.getElementById('current-index');
+        const totalCountSpan = document.getElementById('total-count');
+        
+        // Affiche le nombre total d'images
+        totalCountSpan.textContent = images.length;
+        
+        // Charge et affiche l'image initiale
+        function loadImage(index) {
+            if (images.length === 0) return;
+            
+            // Vérifie les limites
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            
+            currentImageIndex = index;
+            diapoImage.src = imagePath + images[currentImageIndex];
+            diapoImage.alt = "Image " + (currentImageIndex + 1);
+            
+            // Met à jour l'indicateur
+            currentIndexSpan.textContent = currentImageIndex + 1;
+            
+            // Active/désactive les boutons si nécessaire
+            prevBtn.disabled = images.length <= 1;
+            nextBtn.disabled = images.length <= 1;
+        }
+        
+        // Événements des boutons
+        prevBtn.addEventListener('click', () => {
+            loadImage(currentImageIndex - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            loadImage(currentImageIndex + 1);
+        });
+        
+        // Navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                loadImage(currentImageIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                loadImage(currentImageIndex + 1);
+            }
+        });
+        
+        // Charge la première image au démarrage
+        loadImage(0);
+    </script>
+    <div class="container">
+
+        <section id="apropos" class="main-content">
+            <h2>fanokanana mpandray fanasan'ny tompo</h2>
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/2 (1).jpg" alt="2 (1).jpg" width="50%">
+          <img src="lmc/2 (2).jpg" alt="2 (2).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/2 (3).jpg" alt="2 (3).jpg" width="50%">
+          <img src="lmc/2 (9).jpg" alt="2 (9).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/2 (5).jpg" alt="2 (5).jpg" width="50%">
+          <img src="lmc/2 (6).jpg" alt="2 (6).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/2 (7).jpg" alt="2 (7).jpg" width="50%">
+          <img src="lmc/2 (8).jpg" alt="2 (8).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/2 (14).jpg" alt="2 (14).jpg" width="50%">
+          <img src="lmc/2 (11).jpg" alt="2 (11).jpg" width="50%">
+        </div>
+        </div>
+    </section>
+    <div class="container">
+        
+        <section id="apropos" class="main-content">
+            <h2>isan-telo volana fenoarivo</h2>
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/3 (1).jpg" alt="3 (1).jpg" width="50%">
+          <img src="lmc/3 (2).jpg" alt="3 (2).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/3 (3).jpg" alt="3 (3).jpg" width="50%">
+          <img src="lmc/3 (4).jpg" alt="3 (4).jpg" width="50%">
+        </div>
+        </div>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/3 (5).jpg" alt="3 (5).jpg" width="50%">
+          <img src="lmc/3 (6).jpg" alt="3 (6).jpg" width="50%">
+        </div>
+        </div>
+
+    </section>
+
+    <div class="container">
+        <section id="apropos" class="main-content">
+            <h2>tokitany </h2>
+            <div style="display: flex; justify-content: space-between;">
+          <img src="lmc/4 (6).jpg" alt="4 (6).jpg" width="50%">
+          <img src="lmc/4 (5).jpg" alt="4 (5).jpg" width="50%">
+        </div>
+        </div>
+    </section>
+
+        <footer>
+            <p>&copy; 2025 FPTM Madera.</p>
+        </footer>
+</body>
+</html>
