@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Espace Elli Fara</title>
+<link rel="stylesheet" href="Css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Elli Fara</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Espace Elli Fara</h1>
+                <p>Luxury Event Space | Munich</p>
+            </div>
+            
+            <div class="language-switcher">
+                <a href="#" class="active">FR</a> | <a href="#">DE</a> | <a href="#">EN</a>
+            </div>
+            
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apropos.html" class="nav-link">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">A propos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="service.html" class="nav-link">
+                            <i class="fas fa-concierge-bell nav-icon"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gallery.html" class="nav-link">
+                            <i class="fas fa-images nav-icon"></i>
+                            <span class="nav-text">Galerie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="gallery-section">
+        <h1 class="gallery-title">Espace de luxe à travers ces images</h1>
+        <p class="gallery-subtitle">Découvrez notre univers</p>
+        
+        <div class="container">
+            <div style="display: flex;"   class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img src="Images/salon.jpeg" alt="Salon Principal">
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="Images/mariage (2).jpeg" alt="Salle de Mariage">
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="Images/mariage.jpeg" alt="Salle à manger">
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="Images/batisa.jpeg" alt="Cérémonie de Baptême">
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="Images/ivelany.jpeg" alt="L'espace à l'extérieur">
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="Images/ball.jpeg" alt="Salle à l'intérieur">
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="Images/reception.jpeg" alt="Dîner de Mariage">
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="Images/terasy.jpeg" alt="Terrasse">
+                </div>
+                <div class="gallery-item" data-index="8">
+                    <img src="Images/A (2).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="9">
+                    <img src="Images/A (1).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="10">
+                    <img src="Images/A (3).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="11">
+                    <img src="Images/A (8).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="12">
+                    <img src="Images/A (5).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="13">
+                    <img src="Images/A (6).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="14">
+                    <img src="Images/A (7).jpeg" alt="Intérieur">
+                </div>
+                <div class="gallery-item" data-index="15">
+                    <img src="Images/A (9).jpeg" alt="Intérieur">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-nav">
+            <button class="lightbox-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <script src="Js/gallery.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

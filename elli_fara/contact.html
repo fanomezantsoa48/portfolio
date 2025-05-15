@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Espace Elli Fara</title>
+<link rel="stylesheet" href="Css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Elli Fara</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Espace Elli Fara</h1>
+                <p>Luxury Event Space | Munich</p>
+            </div>
+            
+            <div class="language-switcher">
+                <a href="#" class="active">FR</a> | <a href="#">DE</a> | <a href="#">EN</a>
+            </div>
+            
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apropos.html" class="nav-link">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">A propos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="service.html" class="nav-link">
+                            <i class="fas fa-concierge-bell nav-icon"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gallery.html" class="nav-link">
+                            <i class="fas fa-images nav-icon"></i>
+                            <span class="nav-text">Galerie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-hero">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>Planifiez votre événement dans notre espace de luxe</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <h3>Nos coordonnées</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Luxusstraße 123, 80333 München, Allemagne</p>
+                <p><i class="fas fa-phone"></i> +49 89 12345678</p>
+                <p><i class="fas fa-envelope"></i> info@elli-fara-luxus.de</p>
+                <p><i class="fas fa-clock"></i> Lundi-Vendredi: 9h-18h</p>
+                
+                <h3>Frau Elli Fara</h3>
+                <p>Propriétaire et gestionnaire</p>
+                <p><i class="fas fa-phone"></i> +49 89 87654321</p>
+                <p><i class="fas fa-envelope"></i> elli.fara@luxus.de</p>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Formulaire de contact</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Votre téléphone">
+                    </div>
+                    <div class="form-group">
+                        <select id="event-type">
+                            <option value="">Type d'événement</option>
+                            <option value="mariage">Mariage</option>
+                            <option value="bapteme">Baptême</option>
+                            <option value="anniversaire">Anniversaire</option>
+                            <option value="entreprise">Événement d'entreprise</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="event-date" placeholder="Date prévue">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h3>Nous trouver</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.1234567890123!2d11.581980815756789!3d48.13514930000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDA4JzA2LjUiTiAxMcKwMzQnNTUuMSJF!5e0!3m2!1sfr!2sde!4v1234567890123!5m2!1sfr!2sde" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Adresse: Luxusstraße 123, 80333 München</p>
+                <p><i class="fas fa-phone"></i> Téléphone: +49 89 12345678</p>
+                <p><i class="fas fa-envelope"></i> Email: info@elli-fara-luxus.de</p>
+            </div>
+            <div class="footer-section">
+                <h4>Horaires</h4>
+                <p>Lundi - Vendredi: 9h - 18h</p>
+                <p>Samedi - Dimanche: Sur rendez-vous</p>
+            </div>
+            <div class="footer-section">
+                <h4>Réseaux sociaux</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i> Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Espace Elli Fara. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="Js/script.js"></script>
+</body>
+</html>
+
