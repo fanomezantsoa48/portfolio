@@ -64,10 +64,10 @@ ul {
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 95%;
+    max-width: 95%;
+    margin: auto;
+
 }
 
 .section {
@@ -486,11 +486,12 @@ ul {
 /* ================ RESERVATION ================ */
 .reservation-container {
     display: flex;
-    gap: 50px;
+    gap: 10px;
     background: var(--white);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    width:100%;
 }
 
 .reservation-form {
@@ -965,3 +966,4 @@ nav li a.active {
         padding: 12px;
     }
 }
+
