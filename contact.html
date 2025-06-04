@@ -3,104 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Accueil</title>
+  <title>Portfolio - Contact</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-  <!-- Barre de navigation fixe en bas -->
-  <nav class="bottom-nav">
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i><span>Accueil</span></a></li>
-      <li><a href="about.html"><i class="fas fa-user"></i><span>Profil</span></a></li>
-      <li><a href="skills.html"><i class="fas fa-code"></i><span>Skills</span></a></li>
-      <li><a href="contact.html"  class="active"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-      <li><a href="projects.html"><i class="fas fa-envelope"></i><span>project</span></a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="bottom-nav">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i><span>Accueil</span></a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i><span>Profil</span></a></li>
+        <li><a href="skills.html"><i class="fas fa-code"></i><span>Compétences</span></a></li>
+        <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        <li><a href="projects.html"><i class="fas fa-folder"></i><span>Projets</span></a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <section class="contact-section">
+    <div class="container">
+      <h1 class="section-title">Contactez-moi</h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2><i class="fas fa-info-circle"></i> Informations de contact</h2>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>fitahianafenofanomezana@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+261 38 32 335 36 / 034 20 401 54</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Antananarivo, Madagascar</span>
+          </div>
 
-    </header>
+          <h2><i class="fas fa-share-alt"></i> Réseaux sociaux</h2>
+          <div class="social-links">
+            <a href="https://github.com/fanomezantsoa48" target="_blank" class="social-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="#" target="_blank" class="social-link">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="mailto:fitahianafenofanomezana@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://wa.me/+2613832333536" target="_blank" class="social-link">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
 
-    <section class="contact-section">
-        <div class="container">
-            <h1 class="section-title">Contactez-moi</h1>
-    </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2><i class="fas fa-info-circle"></i> Informations de contact</h2>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>fitahianafenofanomezana@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+261 38 32 335 36 / 034 20 401 54</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Antananarivo, Madagascar</span>
-                    </div>
-                    
-                    <h2><i class="fas fa-share-alt"></i> Réseaux sociaux</h2>
-                    <div class="social-links">
-                        <a href="https://github.com/fanomezantsoa48" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i> GitHub : https://fanomezantsoa48.github.io/Portfolio
-                        </a>
-                        <a href="#" target="_blank" class="social-link">
-                            <i class="fab fa-facebook"></i> Facebook : fi tahiana
-                        </a>
-                        <a href="#" target="_blank" class="social-link">
-                            <i class="fab fa-gmail"></i>gmail : fitahianafenofanomezana@gmail.com
-                        </a>
-                        <a href="#" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i> whatsapp : +261 38 32 335 36
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div id="status" class="status"></div>
-                        
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn pulse">
-                            <i class="fas fa-paper-plane"></i> Envoyer le message
-                        </button>
-                    </form>
-                </div>
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div id="status" class="status"></div>
+
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" required>
             </div>
-        </div>
-                <a href="index.html" class="btn pulse">Accueil</a>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Mon Portfolio. Tous droits réservés</p>
-        </div>
-    </footer>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
 
-    <script src="js/script.js"></script>
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn pulse">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+          </form>
+        </div>
+
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Mon Portfolio. Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
