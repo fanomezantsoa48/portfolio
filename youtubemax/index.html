@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Local</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">YouTube Local</div>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Rechercher des vidéos...">
+            <button class="search-button">🔍</button>
+            <button class="clear-search" id="clearSearchButton" style="display:none;">✕</button>
+        </div>
+        <div class="user-actions">
+            <button class="icon-button" id="uploadButton" title="Uploader des vidéos">📁</button>
+            <button class="icon-button" id="themeToggle" title="Changer le thème">🌙</button>
+            <input type="file" id="fileInput" accept="video/*" multiple style="display: none;">
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-item active" data-section="local">
+                <span class="sidebar-icon">💻</span>
+                <span class="sidebar-text">Vidéos Locales</span>
+            </div>
+            <div class="sidebar-item" data-section="recent">
+                <span class="sidebar-icon">🕒</span>
+                <span class="sidebar-text">Récentes</span>
+            </div>
+            <div class="sidebar-item" data-section="favorites">
+                <span class="sidebar-icon">⭐</span>
+                <span class="sidebar-text">Favoris</span>
+            </div>
+            <div class="sidebar-item" id="addFolderBtn">
+                <span class="sidebar-icon">📂</span>
+                <span class="sidebar-text">Ajouter Dossier</span>
+            </div>
+            <div class="sidebar-item" id="refreshButton">
+                <span class="sidebar-icon">🔄</span>
+                <span class="sidebar-text">Actualiser</span>
+            </div>
+        </nav>
+
+        <!-- Contenu des vidéos -->
+        <main class="content" id="videoContent">
+            <div class="section-header">
+                <h2 id="sectionTitle">Vidéos Locales (0)</h2>
+                <div class="header-actions">
+                    <button class="upload-btn" id="uploadVideoBtn">
+                        <span class="btn-icon">📁</span>
+                        <span class="btn-text">Ajouter des vidéos</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Barre de statistiques -->
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="totalVideos">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Favoris:</span>
+                    <span class="stat-value" id="favoriteVideos">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Stockage:</span>
+                    <span class="stat-value" id="totalStorage">0 MB</span>
+                </div>
+            </div>
+
+            <!-- Grille de vidéos -->
+            <div class="video-grid" id="videoGrid">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🎬</div>
+                    <h3>Aucune vidéo trouvée</h3>
+                    <p>Ajoutez vos vidéos en cliquant sur le bouton ci-dessus</p>
+                    <p class="empty-hint">Ou glissez-déposez vos fichiers vidéo ici</p>
+                </div>
+            </div>
+            
+            <!-- Pied de page de la grille -->
+            <div class="grid-footer" id="gridFooter">
+                <div class="load-more" id="loadMoreButton" style="display: none;">
+                    <span>Charger plus de vidéos</span>
+                </div>
+                <div class="grid-info" id="gridInfo">
+                    Affichage de <span id="displayedCount">0</span> vidéos
+                </div>
+            </div>
+        </main>
+
+        <!-- Player de vidéo -->
+        <div class="video-player-container" id="videoPlayerContainer">
+            <div class="player-header">
+                <button class="back-button" id="backButton">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">Retour</span>
+                </button>
+                <h3 id="playerTitle">Lecteur vidéo</h3>
+            </div>
+            <div class="video-player-wrapper">
+                <video class="video-player" id="videoPlayer" controls crossorigin="anonymous">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <div class="player-overlay" id="playerOverlay">
+                    <div class="player-controls">
+                        <button class="player-control-btn" id="playPauseBtn">▶️</button>
+                        <button class="player-control-btn" id="muteBtn">🔊</button>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="video-info-large">
+                <h1 class="video-title-large" id="videoTitleLarge">Titre de la vidéo</h1>
+                <div class="video-stats">
+                    <div class="video-info-small">
+                        <span id="videoFileName">fichier.mp4</span>
+                        <span id="videoFileSize">0 MB</span>
+                        <span id="videoDuration">--:--</span>
+                    </div>
+                    <div class="video-actions">
+                        <button class="action-button" id="favoriteButton">
+                            <span class="action-icon">☆</span>
+                            <span class="action-text">Ajouter aux favoris</span>
+                        </button>
+                        <button class="action-button" id="deleteButton">
+                            <span class="action-icon">🗑️</span>
+                            <span class="action-text">Supprimer</span>
+                        </button>
+                        <button class="action-button" id="downloadButton">
+                            <span class="action-icon">⬇️</span>
+                            <span class="action-text">Télécharger</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-description">
+                    <h4>Informations sur le fichier</h4>
+                    <div id="fileInfo">
+                        <p><strong>Nom:</strong> <span id="filePath"></span></p>
+                        <p><strong>Taille:</strong> <span id="fileSize"></span></p>
+                        <p><strong>Type:</strong> <span id="fileType"></span></p>
+                        <p><strong>Ajoutée:</strong> <span id="fileDate"></span></p>
+                        <p><strong>Durée:</strong> <span id="fileDuration"></span></p>
+                        <p><strong>Lectures:</strong> <span id="filePlayCount">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zone de drag & drop -->
+    <div class="drop-zone" id="dropZone">
+        <div class="drop-content">
+            <div class="drop-icon">📁</div>
+            <h3>Déposez vos vidéos ici</h3>
+            <p>Glissez-déposez vos fichiers vidéo pour les ajouter</p>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="notifications-container" id="notificationsContainer"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Chargement...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
